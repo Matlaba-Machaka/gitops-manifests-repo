@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-app
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gitops-app
+  template:
+    metadata:
+      labels:
+        app: gitops-app
+  spec:
+    containers:
+    - name: web-app
+      image: PLACEHOLDER.azurecr.io/myapp:latest #Github Action overwrites automatically
+      ports:
+      - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitops-app-service
+  namespace: default
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: gitops-app
