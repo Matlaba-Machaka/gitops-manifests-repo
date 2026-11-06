@@ -6,15 +6,13 @@ metadata:
 spec:
   project: default
   source:
-    # FIXED: Replaced truncated placeholder with your explicit GitOps repository URL
-    repoURL: 'https://github.com'
+    repoURL: 'https://github.com/Matlaba-Machaka/gitops-manifests-repo' 
     targetRevision: HEAD
-    path: '.' # Scans the root directory of your repository for your deployment.yaml
+    path: '.' 
   destination:
-    # FIXED: Replaced placeholder with the standard local cluster API registration host
     server: 'https://kubernetes.default.svc'
     namespace: default
   syncPolicy:
     automated:
-      prune: true     # Automatically purges cluster resources if removed from Git
-      selfHeal: true  # Instantly overwrites out-of-band manual changes to match Git
+      prune: true 
+      selfHeal: true
