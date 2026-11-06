@@ -12,12 +12,12 @@ spec:
     metadata:
       labels:
         app: gitops-app
-  spec:
-    containers:
-    - name: web-app
-      image: acrgitopsprod15524.azurecr.io/myapp:ce22be6ca03584e6467a87ceb656d34e6e92c8ba
-      ports:
-      - containerPort: 80
+    spec:
+      containers:
+      - name: web-app
+        image: nginx:alpine # Standard lightweight web container for testing
+        ports:
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
