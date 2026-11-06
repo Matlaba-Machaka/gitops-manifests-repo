@@ -15,7 +15,7 @@ spec:
   spec:
     containers:
     - name: web-app
-      image: PLACEHOLDER.azurecr.io/myapp:latest #Github Action overwrites automatically
+      image: acrgitopsprod15524.azurecr.io/myapp:ce22be6ca03584e6467a87ceb656d34e6e92c8ba
       ports:
       - containerPort: 80
 ---
