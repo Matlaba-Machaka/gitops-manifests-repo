@@ -12,12 +12,19 @@ spec:
     metadata:
       labels:
         app: gitops-app
-    spec:
-      containers:
-      - name: web-app
-        image: nginx:alpine # Standard lightweight web container for testing
+    spec: # FIXED: Indented 4 spaces to align inside template
+      containers: # FIXED: Indented 6 spaces
+      - name: web-app # FIXED: Indented 6 spaces
+        image: acrgitopsprod15524.azurecr.io/myapp:ce22be6ca03584e6467a87ceb656d34e6e92c8ba
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
 ---
 apiVersion: v1
 kind: Service
