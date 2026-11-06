@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: secure-gitops-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com'
+    targetRevision: HEAD
+    path: '.' # Scans the root of your manifest repo for deployment.yaml
+  destination:
+    server: 'https://default.svc' # Points to the local cluster's internal API
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true     # Deletes AKS resources if you remove them from Git
+      selfHeal: true  # Overwrites out-of-band manual changes instantly
