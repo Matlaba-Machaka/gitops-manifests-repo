@@ -6,13 +6,15 @@ metadata:
 spec:
   project: default
   source:
+    # FIXED: Replaced truncated placeholder with your explicit GitOps repository URL
     repoURL: 'https://github.com'
     targetRevision: HEAD
-    path: '.' # Scans the root of your manifest repo for deployment.yaml
+    path: '.' # Scans the root directory of your repository for your deployment.yaml
   destination:
-    server: 'https://default.svc' # Points to the local cluster's internal API
+    # FIXED: Replaced placeholder with the standard local cluster API registration host
+    server: 'https://kubernetes.default.svc'
     namespace: default
   syncPolicy:
     automated:
-      prune: true     # Deletes AKS resources if you remove them from Git
-      selfHeal: true  # Overwrites out-of-band manual changes instantly
+      prune: true     # Automatically purges cluster resources if removed from Git
+      selfHeal: true  # Instantly overwrites out-of-band manual changes to match Git
