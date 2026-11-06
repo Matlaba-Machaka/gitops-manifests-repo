@@ -15,7 +15,7 @@ spec:
     spec: 
       containers: 
       - name: web-app 
-        image: acrgitopsprod15524.azurecr.io/myapp:ce22be6ca03584e6467a87ceb656d34e6e92c8ba
+        image: acrgitopsprod15524.azurecr.io/myapp:9110984e0a5785cc756ac719b21fd1f06f4a3843
         ports:
         - containerPort: 80
         resources:
